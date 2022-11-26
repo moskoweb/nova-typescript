@@ -8,7 +8,7 @@ cd "$WORKSPACE_DIR"
 
 if [ "$DEBUG" != "TRUE" ]
 then
-	node \
+	/opt/homebrew/bin/node \
 		"$INSTALL_DIR/node_modules/typescript-language-server/lib/cli.js" \
 		--stdio \
 		--tsserver-path="$TSLIB_PATH/tsserver.js"
@@ -22,7 +22,7 @@ else
 	DEBUG_ARG="$DEBUG_ARG=127.0.0.1:$DEBUG_PORT"
 	# note: --tsserver-path=".../tsserver.js" doesn't support debugging since it
 	# tries to fork and bind two processes to the same port
-	node \
+	/opt/homebrew/bin/node \
 		"$DEBUG_ARG" \
 		"$INSTALL_DIR/node_modules/typescript-language-server/lib/cli.js" \
 		--stdio \
